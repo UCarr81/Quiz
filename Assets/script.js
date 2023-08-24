@@ -15,7 +15,6 @@ var countDown = setInterval(() => {
 
 function endTime() {
     timer.innerHTML = "TIME OUT"
-    alert("TIME OUT");
 }
 
 var quizQuestions = [{
