@@ -18,19 +18,55 @@ function endTime() {
     alert("TIME OUT");
 }
 
-var questions = [
-    {
-        prompt: "Question 1 \n(A) Answer 1\n(B) Answer 2\n(C) Answer 3\n(D) Answer 4",
-
-        answer: "A"
-    }
+var quizQuestions = [{
+    question: "The First Question",
+    answer: [
+    { text: "Answer 1", isCorrect: false },
+    { text: "Answer 2", isCorrect: true},
+    { text: "Answer 3", isCorrect: false}, 
+    { text: "Answer 4", isCorrect: false }
 ]
-//var Question = document.querySelector('h2')
-//var quizQuestion = questions
-//for (var i = 0; i < questions.length; i++) {
-//var reponse = window.prompt(questions[i].prompt)
-//if(response == questions[i].answer) {
-//    score++;
-//    alert("Correct")
-//}
-//}
+},
+{
+        question: "The Second Question",
+        answer: [
+        { text: "Answer 1", isCorrect: true},
+        { text: "Answer 2", isCorrect: false},
+        { text: "Answer 3", isCorrect: false},
+        { text: "Answer 4", isCorrect: false}
+    ]
+},
+{
+    question: "The Third Question",
+        answer: [
+        { text: "Answer 1", isCorrect: true},
+        { text: "Answer 2", isCorrect: false},
+        { text: "Answer 3", isCorrect: false},
+        { text: "Answer 4", isCorrect: false}
+        ]
+},
+{
+    question: "The Fourth Question",
+        answer: [
+        { text: "Answer 1", isCorrect: true},
+        { text: "Answer 2", isCorrect: false},
+        { text: "Answer 3", isCorrect: false},
+        { text: "Answer 4", isCorrect: false}
+        ]
+} 
+]
+
+var currentQuestion = 0
+var score = 0
+
+function Quest() {
+    var q = document.getElementById('question')
+    var choises = document.getElementById('choises')
+
+    q.textContent = quizQuestions[currentQuestion].question;
+    choises.innerHTML = ""
+
+    for (var i = 0; i < quizQuestions[currentQuestion].answer.length; i++) {
+
+    }
+}
