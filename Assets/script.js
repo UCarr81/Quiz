@@ -138,3 +138,21 @@ startButton.addEventListener("click", function () {
     startCountdown();
     showQuestion();
 });
+
+var restartBtn = document.getElementById("restart-btn")
+
+restartBtn.addEventListener('click', function () {
+    startButton.disabled = false;
+    document.getElementById("quiz-container").style.display = "block";
+    document.getElementById("score-container").style.display = "none";
+
+    currentQuestion = 0;
+    score = 0;
+    timerSecond = 60;
+
+    timer.innerHTML = timerSecond
+
+    clearInterval(countDown);
+
+    showQuestion();
+});
