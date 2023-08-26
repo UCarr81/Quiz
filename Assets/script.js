@@ -155,4 +155,6 @@ restartBtn.addEventListener('click', function () {
     clearInterval(countDown);
 
     showQuestion();
-});
+    startCountdown();
+    document.getElementById("start-btn").style.display = "none";
+}); 
