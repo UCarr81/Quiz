@@ -62,10 +62,12 @@ var score = 0;
 
 var question = document.getElementById("question");
 var choices = document.getElementById("choices");
+var checkButton = document.getElementById("check-btn");
 
 function showQuestion() {
     question.textContent = quizQuestions[currentQuestion].q;
     choices.innerHTML = "";
+    
 
     for (let i = 0; i < quizQuestions[currentQuestion].answer.length; i++) {
         var choicesDiv = document.createElement("div");
@@ -89,6 +91,7 @@ function nextQues() {
         currentQuestion++;
         showQuestion();
     } else {
+        displayScore();
     }
 }
 
@@ -100,16 +103,32 @@ function ansCheck() {
         if (quizQuestions[currentQuestion].answer[selectedValue].isCorrect) {
             score++;
             console.log("Correct");
+        } else {
+            // If the answer is wrong, subtract 10 seconds from the timer
+            timerSecond -= 10;
         }
+        
         nextQues();
     } else {
         nextQues();
     }
 }
+var highScore = Number.POSITIVE_INFINITY;
 
 function displayScore() {
+    clearInterval(countDown); 
+    var timeTaken = 60 - timerSecond; 
+    var scoreForThisAttempt = timeTaken; 
+
+    if (scoreForThisAttempt < highScore) {
+        highScore = scoreForThisAttempt; 
+    }
+
     var total = document.getElementById("score");
-    total.textContent = "Your Total Score is " + score;
+    total.textContent = "Your Score: " + scoreForThisAttempt + " | High Score: " + highScore;
+
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("score-container").style.display = "block";
 }
 
 var startButton = document.getElementById("start-btn");

@@ -11,23 +11,29 @@
 <body>
     <section class="Clock">
         <div class="time" id="timer">
-            <h1> 00:00 </h1>
+            <h1> Total Time to complete: 01:00 </h1>
         </div>
     </section>
 
     <section class="Menu" id="Main"></section>
         <div id="menu">
-            <button class="btn" id="start-btn">Start Quiz</button>
-
+            <button class="start-btn" id="start-btn">Start Quiz</button>
+            <div class="header" id="body-Quiz">
+                <h2>Try to answer the following "questions" within the time limit! 
+                    Keep in mind that incorrect answers will 
+                    penalize your scoretime by ten seconds!</h2>
+            </div>
         </div>
    
-    <div class="Quiz">
-        <h1>QUIZ</h1>
+    <div class="Quiz" id="quiz-container">
         <div class="questions" id="question"></div>
         <div class="answer" id="choices"></div>
-        <button class="btn" onclick="ansCheck()" id="btn">Check</button>
-        <div id="score"></div>
+        <button class="btn" onclick="ansCheck()" id="check-btn" style="display: block;">Check</button>
+    </div>
+        <div id="score-container" class="container" style="display: none;">
+        <p id="score"></p>
         <script src="./Assets/script.js"></script>
+    </div>
         
 </body>
 </html>
