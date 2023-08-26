@@ -1,20 +1,22 @@
+
 var timer = document.querySelector('h1');
 var timerSecond = 60;
+var countDown;
 
-timer.innerHTML = timerSecond;
-
-var countDown = setInterval(() => {
- timerSecond--;
- timer.innerHTML = timerSecond;
- if(timerSecond <= 0 || timerSecond < 1) {
-    endTime();
-    clearInterval(countDown);
-    
- }
-},1000)
+function startCountdown() {
+    timer.innerHTML = timerSecond;
+    countDown = setInterval(() => {
+        timerSecond--;
+        timer.innerHTML = timerSecond;
+        if (timerSecond <= 0) {
+            clearInterval(countDown);
+            endTime();
+        }
+    }, 1000);
+}
 
 function endTime() {
-    timer.innerHTML = "TIME OUT"
+    timer.innerHTML = "TIME OUT";
 }
 
 var quizQuestions = [{
@@ -27,7 +29,7 @@ var quizQuestions = [{
 ]
 },
 {
-        question: "The Second Question",
+        q: "The Second Question",
         answer: [
         { text: "Answer 1", isCorrect: true},
         { text: "Answer 2", isCorrect: false},
@@ -55,18 +57,16 @@ var quizQuestions = [{
 } 
 ]
 
-var currentQuestion = 0
-var score = 0
+var currentQuestion = 0;
+var score = 0;
 
-function quesLoader() {
-    var question = document.getElementById("question");
-    var choices = document.getElementById("choices");
+var question = document.getElementById("question");
+var choices = document.getElementById("choices");
 
+function showQuestion() {
     question.textContent = quizQuestions[currentQuestion].q;
-    choices.innerHTML = ""
+    choices.innerHTML = "";
 
-    //I wish I could say I made this but I googled this and followed a Youtube Video. Credit goes to GeeksforGeeks.
-    //Some is understandable but without their Help Im not sure how far I wouldve gone.
     for (let i = 0; i < quizQuestions[currentQuestion].answer.length; i++) {
         var choicesDiv = document.createElement("div");
         var choice = document.createElement("input");
@@ -77,40 +77,45 @@ function quesLoader() {
         choice.value = i;
 
         choiceLabel.textContent = quizQuestions[currentQuestion].answer[i].text;
-        
+
         choicesDiv.appendChild(choice);
         choicesDiv.appendChild(choiceLabel);
         choices.appendChild(choicesDiv);
     }
 }
 
-quesLoader();
-
-function nextQues(){
-    if (currentQuestion < quizQuestions.length - 1 ) {
+function nextQues() {
+    if (currentQuestion < quizQuestions.length - 1) {
         currentQuestion++;
-        quesLoader();
+        showQuestion();
     } else {
-        document.getElementById("choices").remove();
-        document.getElementById("question").remove();
-        document.getElementById("btn").remove();
-
     }
 }
 
 function ansCheck() {
-    var selected = parseInt(document.querySelector('input[name="answer"]:checked').value);
+    var selected = document.querySelector('input[name="answer"]:checked');
+    if (selected) {
+        var selectedValue = parseInt(selected.value);
 
-    if (quizQuestions[currentQuestion].answer[selected].isCorrect) {
-    score++;
-    console.log("Correct")
-    nextQues()
-    
-} else {
-    nextQues();
+        if (quizQuestions[currentQuestion].answer[selectedValue].isCorrect) {
+            score++;
+            console.log("Correct");
+        }
+        nextQues();
+    } else {
+        nextQues();
+    }
 }
-function score() {
-    var total = document.getElementById("score")
-    total.textContent = "Your Total Score is" + score 
+
+function displayScore() {
+    var total = document.getElementById("score");
+    total.textContent = "Your Total Score is " + score;
 }
-}
+
+var startButton = document.getElementById("start-btn");
+
+startButton.addEventListener("click", function () {
+    startButton.disabled = true;
+    startCountdown();
+    showQuestion();
+});
