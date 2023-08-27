@@ -206,5 +206,5 @@ function submitHighscore(initials, score) {
 //IM DONE!!!!!!! WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
 
 //This was a fun Project and one that definently took me a long time 
-//as much as it was
+//as much as it was frustrating it was also very fun
 
