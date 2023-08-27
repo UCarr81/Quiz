@@ -13,6 +13,7 @@ function startCountdown() {
             endTime();
         }
     }, 1000);
+    checkButton.style.display = "block";
 }
 
 function endTime() {
@@ -63,6 +64,7 @@ var score = 0;
 var question = document.getElementById("question");
 var choices = document.getElementById("choices");
 var checkButton = document.getElementById("check-btn");
+checkButton.style.display = "none";
 
 function showQuestion() {
     question.textContent = quizQuestions[currentQuestion].q;
