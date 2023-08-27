@@ -21,41 +21,59 @@ function endTime() {
 }
 
 var quizQuestions = [{
-    q: "The First Question",
+    q: "What Is The Most Popular Car Color",
     answer: [
-    { text: "Answer 1", isCorrect: false },
-    { text: "Answer 2", isCorrect: true},
-    { text: "Answer 3", isCorrect: false}, 
-    { text: "Answer 4", isCorrect: false }
+    { text: "Gray", isCorrect: false },
+    { text: "White", isCorrect: true},
+    { text: "Black", isCorrect: false}, 
+    { text: "Blue", isCorrect: false }
 ]
 },
 {
-        q: "The Second Question",
+        q: "Which Is NOT A Brand In General Motor Car Company",
         answer: [
-        { text: "Answer 1", isCorrect: true},
-        { text: "Answer 2", isCorrect: false},
-        { text: "Answer 3", isCorrect: false},
-        { text: "Answer 4", isCorrect: false}
+        { text: "Ford", isCorrect: true},
+        { text: "Cadillac", isCorrect: false},
+        { text: "Chevrolet", isCorrect: false},
+        { text: "Buick", isCorrect: false}
     ]
 },
 {
-    q: "The Third Question",
+    q: "What Qualifies A Car To Be Considered Muscle",
         answer: [
-        { text: "Answer 1", isCorrect: true},
-        { text: "Answer 2", isCorrect: false},
-        { text: "Answer 3", isCorrect: false},
-        { text: "Answer 4", isCorrect: false}
+        { text: "V6", isCorrect: false},
+        { text: "V8+", isCorrect: true},
+        { text: "Loud", isCorrect: false},
+        { text: "RWD", isCorrect: false}
         ]
 },
 {
-    q: "The Fourth Question",
+    q: "How Many Cars Are Manufactured In America Per Year",
         answer: [
-        { text: "Answer 1", isCorrect: true},
-        { text: "Answer 2", isCorrect: false},
-        { text: "Answer 3", isCorrect: false},
-        { text: "Answer 4", isCorrect: false}
+        { text: "1.1 Million", isCorrect: false},
+        { text: "3 Million", isCorrect: false},
+        { text: "1.8 Million ", isCorrect: true},
+        { text: "6.6 Million", isCorrect: false}
         ]
-} 
+}, 
+{
+    q: "Which TWO Companies are Currently The Worlds Largest Car Manufacturers",
+        answer: [
+        { text: "Nissan and Ford ", isCorrect: false},
+        { text: "Chevrolet and Dodge", isCorrect: false},
+        { text: "Toyota and Nissan", isCorrect: false},
+        { text: "Volkswagen and Toyota", isCorrect: true}
+        ]
+},
+{
+    q: "Toyota's Most Popular Production Car is?",
+    answer: [
+    { text: "Corolla", isCorrect: true},
+    { text: "Tacoma", isCorrect: false},
+    { text: "Tundra", isCorrect: false},
+    { text: "Camry", isCorrect: false}
+    ]
+}
 ]
 
 var currentQuestion = 0;
@@ -140,9 +158,10 @@ function displayScore() {
 }
 
 var startButton = document.getElementById("start-btn");
-
+var menuPrompt = document.getElementById("body-Quiz");
 startButton.addEventListener("click", function () {
     startButton.disabled = true;
+    menuPrompt.style.display = "none";
     startCountdown();
     showQuestion();
 });
