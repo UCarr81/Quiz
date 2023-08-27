@@ -67,7 +67,6 @@ var checkButton = document.getElementById("check-btn");
 function showQuestion() {
     question.textContent = quizQuestions[currentQuestion].q;
     choices.innerHTML = "";
-    
 
     for (let i = 0; i < quizQuestions[currentQuestion].answer.length; i++) {
         var choicesDiv = document.createElement("div");
@@ -102,16 +101,23 @@ function ansCheck() {
 
         if (quizQuestions[currentQuestion].answer[selectedValue].isCorrect) {
             score++;
-            console.log("Correct");
+            selected.nextElementSibling.classList.add("correct-answer");
+            displayAnswerMessage(true);
+            nextQues();
         } else {
-            // If the answer is wrong, subtract 10 seconds from the timer
             timerSecond -= 10;
+            selected.nextElementSibling.classList.add("incorrect-answer");
+            displayAnswerMessage(false); 
+            nextQues();
         }
-        
-        nextQues();
     } else {
         nextQues();
     }
+}
+
+function displayAnswerMessage(isCorrect) {
+    var answerMessage = document.getElementById("answer-display");
+    answerMessage.textContent = isCorrect ? "Correct!" : "Incorrect!";
 }
 var highScore = Number.POSITIVE_INFINITY;
 
