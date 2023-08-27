@@ -148,10 +148,11 @@ function displayScore() {
 
     if (scoreForThisAttempt < highScore) {
         highScore = scoreForThisAttempt; 
+    } else {scoreForThisAttempt = timeTaken
     }
 
     var total = document.getElementById("score");
-    total.textContent = "Your Score: " + scoreForThisAttempt + " | High Score: " + highScore;
+    total.textContent = "Your Score: " + scoreForThisAttempt
 
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("score-container").style.display = "block";
@@ -185,3 +186,25 @@ restartBtn.addEventListener('click', function () {
     startCountdown();
     document.getElementById("start-btn").style.display = "none";
 }); 
+
+var initialsInput = document.getElementById("initials-input");
+var submitScoreBtn = document.getElementById("submit-initials-btn");
+
+submitScoreBtn.addEventListener("click", function () {
+    if (initialsInput.value) {
+        submitHighscore(initialsInput.value, score);
+    }
+});
+
+function submitHighscore(initials, score) {
+    var highscoreList = document.getElementById("highscore-list");
+    var highscoreItem = document.createElement("li");
+    highscoreItem.textContent = `${initials.toUpperCase()}: ${score}`;
+    highscoreList.appendChild(highscoreItem);
+}
+
+//IM DONE!!!!!!! WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
+
+//This was a fun Project and one that definently took me a long time 
+//as much as it was frustrating it was also very fun!
+
