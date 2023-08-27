@@ -10,7 +10,6 @@ body {
     background-color: #090e53;
     color: white;
 }
-
 .container {
     text-align: center;
     background-color: #000000;
@@ -43,13 +42,35 @@ h1 {
 }
 
 #question {
-    font-size: 18px;
+    font-size: 40px;
     margin-bottom: 20px;
+    text-align: center;
+    padding: 0%;
 }
 
 #choices {
+    text-align: center;
     display: grid;
     gap: 10px;
+    font-size: 30px;
+}
+
+.start-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+#check-btn {
+    margin: 500px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+
+
 }
 button {
     padding: 10px 20px;
@@ -69,6 +90,11 @@ button:disabled {
 
 button:hover {
     background-color: #fa0707;
+}
+
+button:disabled:hover {
+    background-color: #090e53;
+
 }
 
 #score {

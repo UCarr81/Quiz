@@ -152,7 +152,7 @@ function displayScore() {
     }
 
     var total = document.getElementById("score");
-    total.textContent = "Your Score: " + scoreForThisAttempt
+    total.textContent = "Your Score: " + scoreForThisAttempt + " | High Score: " + highScore;
 
     document.getElementById("quiz-container").style.display = "none";
     document.getElementById("score-container").style.display = "block";
@@ -206,5 +206,5 @@ function submitHighscore(initials, score) {
 //IM DONE!!!!!!! WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
 
 //This was a fun Project and one that definently took me a long time 
-//as much as it was frustrating it was also very fun!
+//as much as it was
 
